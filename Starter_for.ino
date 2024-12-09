@@ -1,29 +1,30 @@
-/* This sketch will be used to create a cycle where a light fades up
-from completely off to completely on over the course of two seconds*/
+int LED=9;
+ 
+void setup(){
+  pinMode(LED, OUTPUT);
 
-// Initialize variables
-int y;
 
-void setup()
-{
-    // Set up the LED pin
-    pinMode (6,);
-    
-    // Fade LED from 0 to full power over one second
-    for (y = 0; y < 256; ){
-        analogWrite (, y);
-        delay ();
+
+ 
+  int count = 1;
+  int Leds[3] = {5, 6, 7};
+  while (count <= 3){
+    pinMode(Leds[count], OUTPUT);
+    for (int i=0;i<=255;i=i+1){
+      digitalWrite(Leds[count], HIGH);
+      analogWrite(LED,i);
+      delay(5);
     }
-    
-    // Fade LED from full power to 0 over one second
-    for (y = 255; y >= 0; y = y - 1){
-        analogWrite (, y);
-        delay ();
+   
+    for (int i=255;i>=0;i--){
+      analogWrite(LED,i);
+      delay(5);
     }
-
+    count++;
+  }
+     
 }
 
-void loop()
-{
-
+void loop(){
+ 
 }
